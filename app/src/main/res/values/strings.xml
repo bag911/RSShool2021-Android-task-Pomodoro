@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RSShool2021-Android-task-Pomodoro</string>
+    <string name="add_btn">Add timer</string>
+    <string name="startBtn">Start</string>
+    <string name="stopBtn">stop</string>
+</resources>
