@@ -31,6 +31,8 @@ class StopwatchAdapter(private val listener: StopwatchListener, private val cont
                 return oldItem.currentMs == newItem.currentMs &&
                         oldItem.isStarted == newItem.isStarted
             }
+
+            override fun getChangePayload(oldItem: Stopwatch, newItem: Stopwatch) = Any()
         }
     }
 }
