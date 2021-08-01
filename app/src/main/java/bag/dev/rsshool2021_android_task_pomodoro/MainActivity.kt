@@ -51,7 +51,12 @@ class MainActivity : AppCompatActivity(), StopwatchListener, LifecycleObserver {
         mainBinding.apply {
             addNewStopwatchButton.isEnabled = false
             addNewStopwatchButton.setOnClickListener {
-                val aimTime = editTextTimerSize.text.toString().toLong() * 60000
+                val input = editTextTimerSize.text.toString().toLong()
+                var aimTime = 0L
+                if(input <= 1440){
+                    aimTime = input * 60000
+                }
+
                 editTextTimerSize.text.clear()
                 stopwatches.add(Stopwatch(nextId++, aimTime, false,0, false))
                 stopwatchAdapter.submitList(stopwatches.toList())

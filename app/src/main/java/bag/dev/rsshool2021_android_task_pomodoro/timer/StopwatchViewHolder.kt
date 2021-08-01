@@ -23,6 +23,8 @@ class StopwatchViewHolder(
         binding.textView.text = (stopwatch.aimTime-stopwatch.currentMs).displayTime()
         binding.customView.setPeriod(stopwatch.aimTime)
         binding.customView.setCurrent(stopwatch.currentMs)
+        if (stopwatch.aimTime <= stopwatch.currentMs)
+            stopwatch.isFinished = true
         removeBtn(stopwatch)
         if (stopwatch.isStarted) {
             startTimer(stopwatch)
@@ -39,7 +41,7 @@ class StopwatchViewHolder(
                 stopwatch.currentMs += 1000L
                 binding.textView.text = (stopwatch.aimTime - stopwatch.currentMs).displayTime()
                 binding.customView.setCurrent(stopwatch.currentMs)
-                if (stopwatch.aimTime==stopwatch.currentMs){
+                if (stopwatch.aimTime <= stopwatch.currentMs){
                     stopTimer()
                     stopwatch.isFinished = true
                     Toast.makeText(context, "Timer finished", Toast.LENGTH_SHORT).show()
